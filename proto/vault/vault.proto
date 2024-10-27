@@ -17,6 +17,12 @@ message VaultGetResponse{
     repeated Vault vaults = 1;
     string error = 2;
 }
+message VaultDeleteRequest{
+    uint32 id = 1;
+}
+message VaultDeleteResponse{
+    string error = 1;
+}
 
 message VaultCreateRequest{
     string name = 1;
@@ -42,10 +48,9 @@ message VaultUpdateResponse{
     string error = 2;
 }
 
-
 service VaultService{
     rpc VaultGet(VaultGetRequest) returns (VaultGetResponse);
     rpc VaultCreate(VaultCreateRequest) returns (VaultCreateResponse);
     rpc VaultUpdate(VaultUpdateRequest) returns (VaultUpdateResponse);
-    rpc VaultDelete(VaultGetRequest) returns (Vault);
+    rpc VaultDelete(VaultDeleteRequest) returns (VaultDeleteResponse);
 }
