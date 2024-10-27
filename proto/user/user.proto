@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "github.com/dziunincode69/gopassafe-proto/user";
+
+message User {
+  string email = 1;
+  string password = 2;
+}
+
+message ChangePasswordRequest {
+  uint32 id = 1;
+  string old_password = 2 [json_name = "old_password"];
+  string new_password = 3 [json_name = "new_password"];
+}
+
+message RegisterRequest {
+  User user = 1;
+}
+message RegisterResponse {
+  uint32 id = 1;
+  string email = 2;
+  string token = 3;
+  string error = 4;
+}
+
+message LoginRequest {
+  User user = 1;
+}
+message LoginResponse {
+  uint32 id = 1;
+  string email = 2;
+  string token = 3;
+  string error = 4;
+}
+
+service RegisterService {
+    rpc Register(RegisterRequest) returns (RegisterResponse);
+}
+
+service LoginService {
+    rpc Login(LoginRequest) returns (LoginResponse);
+}
