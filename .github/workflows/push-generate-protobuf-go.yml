@@ -24,7 +24,7 @@ jobs:
 
       - name: Generate Go Source
         run: |
-          mkdir -p protogen
+          mkdir protogen
           make pipeline-build
 
       - name: Check for changes
