@@ -6,7 +6,12 @@ message User {
   string email = 1;
   string password = 2;
 }
-
+message UserResponse { 
+  uint32 id = 1;
+  string email = 2;
+  string token = 3;
+  string error = 4;
+}
 message ChangePasswordRequest {
   uint32 id = 1;
   string old_password = 2 [json_name = "old_password"];
@@ -17,20 +22,14 @@ message RegisterRequest {
   User user = 1;
 }
 message RegisterResponse {
-  uint32 id = 1;
-  string email = 2;
-  string token = 3;
-  string error = 4;
+  UserResponse user = 1;
 }
 
 message LoginRequest {
   User user = 1;
 }
 message LoginResponse {
-  uint32 id = 1;
-  string email = 2;
-  string token = 3;
-  string error = 4;
+  UserResponse user = 1;
 }
 
 service RegisterService {
