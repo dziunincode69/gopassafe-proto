@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.email "d.ziunincode69@gmail.com"
           git config --global user.name "github-actions[bot]"
-          git add protogen/
+          git add protogen/ -f
           git commit -m "chore(protobuf-go): Auto-generated files" || echo "No changes to commit"
 
       - name: Push Changes
