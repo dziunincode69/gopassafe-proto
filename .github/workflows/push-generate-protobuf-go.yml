@@ -26,6 +26,8 @@ jobs:
         run: |
           mkdir -p protogen
           make pipeline-build
+          make protoc-go
+
 
       - name: Check Git Status
         run: |
